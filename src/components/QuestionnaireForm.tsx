@@ -30,41 +30,44 @@ export default function QuestionnaireForm({ onSubmit }: QuestionnaireFormProps) 
   };
 
   return (
-    <form onSubmit={handleSubmit} className="space-y-6 w-full max-w-md">
-      <div className="flex items-center justify-center space-x-2 text-indigo-600 mb-8">
-        <Gift size={32} />
-        <h2 className="text-2xl font-bold">Gift Finder</h2>
+    <form 
+      onSubmit={handleSubmit} 
+      className="space-y-10 w-full max-w-md p-8 bg-gradient-to-r from-indigo-500 to-purple-600 shadow-2xl rounded-2xl transform hover:scale-105 transition-all duration-500 text-white"
+    >
+      <div className="flex items-center justify-center space-x-3 mb-10">
+        <Gift size={48} className="animate-bounce" />
+        <h2 className="text-4xl font-bold">Gift Finder</h2>
       </div>
 
-      <div className="space-y-4">
+      <div className="space-y-6">
         <div>
-          <label className="block text-sm font-medium text-gray-700">Recipient's Name</label>
+          <label className="block text-lg font-medium">Recipient's Name</label>
           <input
             type="text"
             required
-            className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 p-2 border"
+            className="mt-2 block w-full rounded-lg bg-white text-gray-700 p-4 border-none shadow-lg focus:ring-4 focus:ring-purple-300 transition-all"
             value={formData.name}
             onChange={e => setFormData(prev => ({ ...prev, name: e.target.value }))}
           />
         </div>
 
         <div>
-          <label className="block text-sm font-medium text-gray-700">Age</label>
+          <label className="block text-lg font-medium">Age</label>
           <input
             type="number"
             required
             min="0"
-            className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 p-2 border"
+            className="mt-2 block w-full rounded-lg bg-white text-gray-700 p-4 border-none shadow-lg focus:ring-4 focus:ring-purple-300 transition-all"
             value={formData.age || ''}
             onChange={e => setFormData(prev => ({ ...prev, age: parseInt(e.target.value) }))}
           />
         </div>
 
         <div>
-          <label className="block text-sm font-medium text-gray-700">Occasion</label>
+          <label className="block text-lg font-medium">Occasion</label>
           <select
             required
-            className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 p-2 border"
+            className="mt-2 block w-full rounded-lg bg-white text-gray-700 p-4 border-none shadow-lg focus:ring-4 focus:ring-purple-300 transition-all"
             value={formData.occasion}
             onChange={e => setFormData(prev => ({ ...prev, occasion: e.target.value }))}
           >
@@ -76,34 +79,34 @@ export default function QuestionnaireForm({ onSubmit }: QuestionnaireFormProps) 
         </div>
 
         <div>
-          <label className="block text-sm font-medium text-gray-700">Interests (comma-separated)</label>
+          <label className="block text-lg font-medium">Interests (comma-separated)</label>
           <input
             type="text"
             required
             placeholder="e.g., reading, gaming, cooking"
-            className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 p-2 border"
+            className="mt-2 block w-full rounded-lg bg-white text-gray-700 p-4 border-none shadow-lg focus:ring-4 focus:ring-purple-300 transition-all"
             value={formData.interests.join(', ')}
             onChange={handleInterestsChange}
           />
         </div>
 
         <div>
-          <label className="block text-sm font-medium text-gray-700">Budget ($)</label>
+          <label className="block text-lg font-medium">Budget ($)</label>
           <input
             type="number"
             required
             min="0"
-            className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 p-2 border"
+            className="mt-2 block w-full rounded-lg bg-white text-gray-700 p-4 border-none shadow-lg focus:ring-4 focus:ring-purple-300 transition-all"
             value={formData.budget || ''}
             onChange={e => setFormData(prev => ({ ...prev, budget: parseInt(e.target.value) }))}
           />
         </div>
 
         <div>
-          <label className="block text-sm font-medium text-gray-700">Relationship</label>
+          <label className="block text-lg font-medium">Relationship</label>
           <select
             required
-            className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 p-2 border"
+            className="mt-2 block w-full rounded-lg bg-white text-gray-700 p-4 border-none shadow-lg focus:ring-4 focus:ring-purple-300 transition-all"
             value={formData.relationship}
             onChange={e => setFormData(prev => ({ ...prev, relationship: e.target.value }))}
           >
@@ -117,10 +120,10 @@ export default function QuestionnaireForm({ onSubmit }: QuestionnaireFormProps) 
 
       <button
         type="submit"
-        className="w-full flex items-center justify-center space-x-2 bg-indigo-600 text-white py-2 px-4 rounded-md hover:bg-indigo-700 transition-colors"
+        className="w-full flex items-center justify-center space-x-2 bg-white text-purple-700 py-4 px-6 rounded-lg hover:bg-gray-200 focus:ring-4 focus:ring-purple-300 transform hover:scale-110 transition-all duration-500 font-bold shadow-lg"
       >
-        <span>Find Perfect Gift</span>
-        <ChevronRight size={20} />
+        <span className="text-lg">Find Perfect Gift</span>
+        <ChevronRight size={24} />
       </button>
     </form>
   );
